@@ -1,0 +1,25 @@
+@use "global" as *;
+
+.main-slide__body {
+  padding: 1rem 0;
+  width: 100%;
+
+  @include mq('md') {
+    padding: 4rem 0;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  @include mq ('lg') {
+    padding: 5rem 0;
+  }
+}
+
+
+.main-slide__content {
+  border-radius: 6px;
+  display: block;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  margin: 0;
+}
