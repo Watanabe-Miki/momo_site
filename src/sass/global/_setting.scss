@@ -22,9 +22,6 @@ $base-font-family: "";
 $second-font-family: "";
 // ※検証ツールでしっかり反映されているか確認する
 
-body {
-  font-family: $base-font-family;
-}
 
 // フォントウェイト
 $regular: 300;
@@ -35,10 +32,18 @@ $bold: 700;
 // 色の指定
 ////////////////////
 
-//色指定（共通性のあるものは出来る限り指定すると良い）
 $black: #111;
 $white: #fff;
 
+////////////////////
+// 共通指定
+////////////////////
+
+body {
+  font-family: $base-font-family;
+  background-color: $black;
+  color: $white;
+}
 
 ////////////////////
 // メディアクエリとブレークポイントの設定
