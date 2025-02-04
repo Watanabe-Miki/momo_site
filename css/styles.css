@@ -239,7 +239,14 @@ select::-ms-expand {
           justify-content: center;
 }
 
-.character-copy__wrap {
+.character-copy {
   padding: 3em;
+}
+
+.character-copy__wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.5em;
 }
 /*# sourceMappingURL=styles.css.map */

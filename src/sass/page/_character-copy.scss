@@ -1,4 +1,9 @@
 @use "global" as *;
-.character-copy__wrap {
+.character-copy {
     padding: 3em;
+}
+
+.character-copy__wrap {
+    display: flex;
+    gap: .5em;
 }
