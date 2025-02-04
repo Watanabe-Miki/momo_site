@@ -1,50 +1,41 @@
+// copy-button
+document.addEventListener('DOMContentLoaded', () => {
+  const fileSelect = document.getElementById('fileSelect');
+  const copyButton = document.getElementById('copyButton');
+  const statusMessage = document.getElementById('statusMessage');
 
-jQuery(function ($) { // この中であればWordpressでも「$」が使用可能になる
+  let selectedFileContent = '';
 
-  var topBtn = $('.pagetop');
-  topBtn.hide();
+  // ファイル選択イベント
+  fileSelect.addEventListener('change', async () => {
+      const filePath = fileSelect.value;
 
-  // ボタンの表示設定
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > 70) {
-      // 指定px以上のスクロールでボタンを表示
-      topBtn.fadeIn();
-    } else {
-      // 画面が指定pxより上ならボタンを非表示
-      topBtn.fadeOut();
-    }
+      try {
+          // ファイルをフェッチして内容を取得
+          const response = await fetch(filePath);
+          if (!response.ok) throw new Error('ファイルを読み込めませんでした');
+
+          selectedFileContent = await response.text();
+          statusMessage.textContent = '"コピーする"ボタンを押してね';
+          copyButton.disabled = false;
+      } catch (error) {
+          statusMessage.textContent = 'エラー: ' + error.message;
+          copyButton.disabled = true;
+      }
   });
 
-  // ボタンをクリックしたらスクロールして上に戻る
-  topBtn.click(function () {
-    $('body,html').animate({
-      scrollTop: 0
-    }, 300, 'swing');
-    return false;
+  // コピーするボタンイベント
+  copyButton.addEventListener('click', () => {
+      if (selectedFileContent) {
+          navigator.clipboard.writeText(selectedFileContent)
+              .then(() => {
+                  statusMessage.textContent = 'キャラ設定をクリップボードにコピーしたよ';
+              })
+              .catch(() => {
+                  statusMessage.textContent = 'コピーに失敗しちゃった。';
+              });
+      }
   });
-
-  //ドロワーメニュー
-  $("#MenuButton").click(function () {
-    // $(".l-drawer-menu").toggleClass("is-show");
-    // $(".p-drawer-menu").toggleClass("is-show");
-    $(".js-drawer-open").toggleClass("open");
-    $(".drawer-menu").toggleClass("open");
-    $("html").toggleClass("is-fixed");
-
-  });
-
-
-
-  // スムーススクロール (絶対パスのリンク先が現在のページであった場合でも作動)
-
-  $(document).on('click', 'a[href*="#"]', function () {
-    let time = 400;
-    let header = $('header').innerHeight();
-    let target = $(this.hash);
-    if (!target.length) return;
-    let targetY = target.offset().top - header;
-    $('html,body').animate({ scrollTop: targetY }, time, 'swing');
-    return false;
-  });
-
 });
+
+
