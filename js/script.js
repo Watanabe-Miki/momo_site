@@ -1,8 +1,8 @@
 // copy-button
 document.addEventListener('DOMContentLoaded', () => {
-  const fileSelect = document.getElementById('fileSelect');
-  const copyButton = document.getElementById('copyButton');
-  const statusMessage = document.getElementById('statusMessage');
+  const fileSelect = document.querySelector('#fileSelect');
+  const copyButton = document.querySelector('#copyButton');
+  const statusMessage = document.querySelector('#statusMessage');
 
   let selectedFileContent = '';
 
