@@ -32,44 +32,36 @@
           <div class="swiper-wrapper">
             <!-- Slides -->
             <div class="swiper-slide">
-              <div class="main-slide__item">
-                <div class="main-slide__body">
-                  <picture class="main-slide__content">
-                    <source type="image/webp" srcset="./src/images/character/erienne.webp">
-                    <img src="./src/images/character/erienne.webp" alt="erienne">
-                  </picture>              
-                </div>
+              <div class="main-slide__body">
+                <img src="./images/character/erienne.webp" alt="erienne">
               </div>
             </div>
             <div class="swiper-slide">
-              <div class="main-slide__item">
-                <div class="main-slide__body">
-                  <picture class="main-slide__content">
-                    <source type="image/webp" srcset="./src/images/character/elian.webp">
-                    <img src="./src/images/character/elian.webp" alt="erian">
-                  </picture>              
-                </div>
+              <div class="main-slide__body">
+                <img src="./images/character/elian.webp" alt="erian">
               </div>
             </div>
             <div class="swiper-slide">
-              <div class="main-slide__item">
-                <div class="main-slide__body">
-                  <picture class="main-slide__content">
-                    <source type="image/webp" srcset="./src/images/character/mal.webp">
-                    <img src="./src/images/character/mal.webp" alt="mal">
-                  </picture>              
-                </div>
+              <div class="main-slide__body">
+                <img src="./images/character/mal.webp" alt="mal">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="main-slide__body">
+                <img src="./images/character/anjye01.webp" alt="anjye">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="main-slide__body">
+                <img src="./images/character/vins01.webp" alt="vins">
               </div>
             </div>
           </div>
-          <!-- If we need navigation buttons -->
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
         </div>
       </div>
-  
     </div>
   </main>
+
   <section class="thumbnail">
     <div class="thumbnail__items">
       <div class="thumbnail__slider-area">
@@ -119,16 +111,25 @@
               </div>
             </div>
           </div>
-          <!-- If we need navigation buttons -->
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
         </div>
       </div>
     </div>
   </section>
-</div>
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+  <section class="character-copy">
+    <div class="inner character-copy__wrap">
+      <select id="fileSelect" class="character-copy__select">
+        <option value="" disabled selected>ファイルを選択してください</option>
+        <option value="./data/anje.txt">アンジェリカ</option>
+        <option value="./data/elie.txt">エリエーヌ</option>
+        <option value="./data/eliesho.txt">エリエーヌ ショート</option>
+        <option value="./data/elria.txt">エリアン</option>
+        <option value="./data/vins.txt">ヴィンセント</option>
+      </select>
+      <button id="copyButton" class="character-copy__button" disabled>コピーする</button>
+      <p id="statusMessage" class="character-copy__status"></p>
+    </div>
+  </section>
   <!-- Swiper -->
   <script src="./js/swiper-bundle.min.js"></script>
   <script src="./js/swiper.js"></script>
